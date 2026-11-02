@@ -21,6 +21,7 @@ A one-page website that shows a high school student (Class of 2031, starting Fal
 - **Header:** a college-style utility bar ("Office of the Bursar · Est. MMXXVII"), the SSU crest, the name and motto, and a maroon-and-gold nav bar.
 - **Welcome:** "What will college cost?", a line with the price range across the schools, and Wally.
 - **Period switch:** All years / 1 year / 1 semester. Every card updates.
+- **Home state menu:** public schools charge less to students from their own state. Changing it recalculates every public school, and each card shows an **In-state**, **Out-of-state** or **Private** tag.
 - **School cards:** name, minimum price, and a stacked bar (tuition, housing & food) with a marker for the price after scholarships. Hovering over a bar shows the amounts. Tapping a card opens:
   - three tiles: cost per day, number of Chipotle burritos (or iPhones), and the monthly payment for 10 years if it's all borrowed
   - a breakdown (tuition, housing & food, scholarships, "you pay at least")
@@ -36,7 +37,7 @@ A one-page website that shows a high school student (Class of 2031, starting Fal
 | First fall semester | 2027 | `START` |
 | Yearly cost increase | 3% | `INC` |
 | Loan rate / term | 6.4%, 10 years | `RATE`, `monthly()` |
-| Home state (gets in-state prices at public schools) | NY | `HOME` |
+| Home state | chosen on the page (starts as New York) | `state.home`, Home state menu |
 | Scorecard data year → Fall 2027 | ×1.03² (data is 2025–26) | `LAG` |
 | Fun prices | burrito $12, iPhone $1,000, car $25,000 | `FUN` |
 | Scholarships | $0 until offers come in | per school |
@@ -45,14 +46,14 @@ A one-page website that shows a high school student (Class of 2031, starting Fal
 
 These use each school's own published **2026–27 on-campus** cost of attendance, raised 3% for 2027–28 and rounded. They're set in `STARTING` in `index.html`.
 
-| School | Tuition & fees | Housing & food | Source |
-|---|---|---|---|
-| University of Tampa | $38,400 | $16,000 | [ut.edu](https://www.ut.edu/admissions/tuition-and-costs) |
-| UCF (out-of-state) | $27,500 | $15,400 | [ucf.edu](https://www.ucf.edu/financial-aid/cost/), [15% out-of-state increase](https://floridaphoenix.com/2026/07/16/non-florida-students-will-pay-higher-public-university-tuition-this-year/) |
-| Loyola New Orleans | $54,700 | $16,500 | [loyno.edu](https://www.loyno.edu/admissions/student-financial-services/tuition-fees/2026-27-undergraduate-tuition-fees) |
-| Occidental College | $73,200 | $21,700 | [oxy.edu](https://oxy.edu/financial-aid/cost) |
-| University of Miami | $70,400 | $27,100 | [miami.edu](https://admissions.miami.edu/undergraduate/financial-aid/cost-of-attendance/index.html) |
-| UMD (out-of-state) | $45,400 | $17,600 | [USM FY2027 tuition](https://www.usmd.edu/usm/adminfinance/budget/FY2027/UMCP_Tuition_and_Fees_2027.pdf), housing estimated from the 2025–26 budget |
+| School | Type | In-state tuition & fees | Out-of-state tuition & fees | Housing & food | Source |
+|---|---|---|---|---|---|
+| University of Tampa | Private (FL) | $38,400 | $38,400 | $16,000 | [ut.edu](https://www.ut.edu/admissions/tuition-and-costs) |
+| UCF | Public (FL) | $6,000 | $27,500 | $15,400 | [ucf.edu](https://www.ucf.edu/financial-aid/cost/), [15% out-of-state increase](https://floridaphoenix.com/2026/07/16/non-florida-students-will-pay-higher-public-university-tuition-this-year/) |
+| Loyola New Orleans | Private (LA) | $54,700 | $54,700 | $16,500 | [loyno.edu](https://www.loyno.edu/admissions/student-financial-services/tuition-fees/2026-27-undergraduate-tuition-fees) |
+| Occidental College | Private (CA) | $73,200 | $73,200 | $21,700 | [oxy.edu](https://oxy.edu/financial-aid/cost) |
+| University of Miami | Private (FL) | $70,400 | $70,400 | $27,100 | [miami.edu](https://admissions.miami.edu/undergraduate/financial-aid/cost-of-attendance/index.html) |
+| UMD | Public (MD) | $13,200 | $45,400 | $17,600 | [USM FY2027 tuition](https://www.usmd.edu/usm/adminfinance/budget/FY2027/UMCP_Tuition_and_Fees_2027.pdf), housing estimated from the 2025–26 budget |
 
 Caveats: the UCF out-of-state figure is an estimate from news coverage of the increase, and the UMD housing figure is an estimate.
 
@@ -60,7 +61,7 @@ Caveats: the UCF out-of-state figure is an estimate from news coverage of the in
 
 The search uses the U.S. Department of Education's [College Scorecard](https://collegescorecard.ed.gov/data/) (public domain). The data is **built into `index.html`** as a JSON block (`<script id="schoolData">`), so the site works on GitHub Pages with no API key. Filters: currently operating, mainly bachelor's-granting, 400+ undergrads.
 
-When a school is picked, tuition is the in-state price if the school is in `HOME` (NY), otherwise out-of-state. Housing is on-campus room & board, or $14,000 if the school doesn't report it. Both get multiplied by `LAG`.
+Each searched school keeps its state, whether it's public or private, and both tuition prices. A public school in the chosen home state uses its in-state price; everything else uses the out-of-state price. Housing is on-campus room & board, or $14,000 if the school doesn't report it. Both get multiplied by `LAG`.
 
 Nicknames the data lacks (NYU, FSU, UMD, RIT, USF, UNC…) are added in the `NICK` map.
 

@@ -9,7 +9,8 @@ The script keeps currently operating, mainly bachelor's-degree schools with at
 least 400 undergrads, and rewrites the <script id="schoolData"> block in
 index.html. Each row is:
   [name, city, state, in-state tuition & fees, out-of-state tuition & fees,
-   on-campus room & board (0 if unknown), alias, undergrad enrollment]
+   on-campus room & board (0 if unknown), alias, undergrad enrollment,
+   control (1 public, 2 private nonprofit, 3 private for-profit)]
 """
 import csv
 import json
@@ -41,6 +42,7 @@ def extract(csv_path):
                     num(d["ROOMBOARD_ON"]) or 0,
                     "" if alias in ("NULL", "NA") else alias[:60],
                     ug,
+                    int(d["CONTROL"]),
                 ])
             except (KeyError, ValueError):
                 continue
