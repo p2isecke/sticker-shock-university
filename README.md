@@ -6,7 +6,6 @@ A one-page website that shows a high school student (Class of 2031, starting Fal
 
 - **Live site:** https://p2isecke.github.io/sticker-shock-university/ (once GitHub Pages is turned on)
 - **Repo:** https://github.com/p2isecke/sticker-shock-university
-- **Source of truth:** `index.html` in this repo. (An early Claude artifact copy exists but is no longer updated.)
 
 ## Design requirements
 
