@@ -7,16 +7,14 @@ A one-page website that shows a high school student (Class of 2031, starting Fal
 - **Live site:** https://p2isecke.github.io/sticker-shock-university/ (once GitHub Pages is turned on)
 - **Repo:** https://github.com/p2isecke/sticker-shock-university
 
-## Design requirements
+## Design principles
 
-These came from feedback while building it, and they matter more than any single feature.
-
-1. **One simple page for both the kid and the parent.** "Relatable to someone under 18 and usable for a parent" is a design requirement, not a request for separate sections. Don't add a "for parents" section.
-2. **Very little reading.** Lead with big numbers. Put detail behind a tap or hover, inside each school's card. No term-by-term tables.
-3. **Relatable comparisons are fun, not work-based.** The student doesn't have a job, so no "hours of work." Use things like Chipotle burritos and iPhones.
-4. **Costs are a minimum:** tuition, fees, housing and food only. No books or personal expenses.
-5. **Don't single out a "favorite" school.** We don't know her preference, so the top line just shows the price range across all schools.
-6. **The money confetti is the favorite feature.** Keep it working: on page load, when Wally is tapped, and (biggest) when a school is added.
+- **One page that works for the whole family.** A teenager can pick it up and get it right away, and a parent can still find the details they need.
+- **Big numbers first, details on tap.** Each school shows its price at a glance. Tap a card for the breakdown.
+- **Make the numbers relatable.** Costs show up as things a teen actually buys, like Chipotle burritos and iPhones, so a six-figure total starts to feel real.
+- **Show the true minimum.** Prices cover tuition, fees, housing and food: the cost of going, before books and spending money.
+- **Every school gets a fair look.** The page compares the whole list without favoring any one school.
+- **Keep it fun.** A mock college website, a mascot and a shower of money confetti make a stressful topic something a family can laugh about together.
 
 ## What's on the page
 
@@ -112,22 +110,6 @@ Everything lives in `index.html`: no build step and no dependencies besides Goog
    ```
 
 3. GitHub Pages republishes within a minute or two. Pages setup: **Settings → Pages → Deploy from a branch → main → / (root)**.
-
-Git on this Mac is signed in through the GitHub CLI (`gh auth login` as `p2isecke`).
-
-## History of changes
-
-1. **First version:** a multi-section planner with a compare chart, a semester table and a parent funding plan. Feedback: too much reading.
-2. **Simplified** to one page with tappable school cards and the detail inside them.
-3. **Added the real schools** (Tampa, UCF, Loyola New Orleans, Occidental, Miami, UMD). Removed books and personal costs; prices are now minimums.
-4. **Replaced "hours of work"** with fun comparisons (Chipotle burritos, iPhones, cars).
-5. **Switched to New York residency:** UCF became out-of-state.
-6. **Rebranded as Sticker Shock University:** college-website theme, crest, motto.
-7. **Mascot:** Sticky the price tag, then Wally the wallet with money confetti.
-8. **Removed** the "Choosing X over Y" banner in favor of a simple range line.
-9. **Added the automatic school search** (College Scorecard data, built in).
-10. **Redrew Wally** in the doodle style. Made the confetti bigger when a school is added.
-11. **Added the Legal & privacy panel and the MIT license.** Moved the site to this repo.
 
 ## Ideas not yet done
 
