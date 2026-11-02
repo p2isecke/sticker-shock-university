@@ -6,7 +6,7 @@ A one-page website that shows a high school student (Class of 2031, starting Fal
 
 - **Live site:** https://p2isecke.github.io/sticker-shock-university/ (once GitHub Pages is turned on)
 - **Repo:** https://github.com/p2isecke/sticker-shock-university
-- **Claude preview copy:** https://claude.ai/artifact/7WtphbtCHZm8gh79Zr4EF8 (private, separate copy; `index.html` here is the source of truth)
+- **Source of truth:** `index.html` in this repo. (An early Claude artifact copy exists but is no longer updated.)
 
 ## Design requirements
 
@@ -105,7 +105,7 @@ Everything lives in `index.html`: no build step and no dependencies besides Goog
 
 ## Updating and deploying
 
-1. Edit `index.html` and open it in a browser to check it.
+1. Edit `index.html` and preview it locally. Run `open index.html` from this folder, or double-click the file, and refresh the browser after each change.
 2. Commit and push to `main`:
 
    ```sh
