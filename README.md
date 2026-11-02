@@ -43,7 +43,7 @@ A one-page website that shows a high school student (Class of 2031, starting Fal
 
 ### The six starting schools
 
-The student lives in **New York**, so every school here is out-of-state. These use each school's own published **2026–27 on-campus** cost of attendance, raised 3% for 2027–28 and rounded. They're set in `STARTING` in `index.html`.
+These use each school's own published **2026–27 on-campus** cost of attendance, raised 3% for 2027–28 and rounded. They're set in `STARTING` in `index.html`.
 
 | School | Tuition & fees | Housing & food | Source |
 |---|---|---|---|
